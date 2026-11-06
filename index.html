@@ -1,9 +1,3 @@
-<!doctype html>
-<html lang="fr">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Go CULTURE prototype</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -50,6 +44,18 @@ h1{font-size:23px} h2{font-size:18px} h3{font-size:14px;letter-spacing:.02em}
 .hero-chip{position:absolute;left:14px;top:12px;background:var(--lime);color:#14101A;font-size:12px;font-weight:600;padding:4px 10px;border-radius:99px;border:1.5px solid #14101A}
 .hero-bell{position:absolute;right:12px;top:10px;width:36px;height:36px;border-radius:50%;background:#fff;color:#14101A;border:1.5px solid #14101A;display:flex;align-items:center;justify-content:center}
 .hero-bell svg{width:18px;height:18px}
+.iconbtn{position:relative}
+.dot{position:absolute;top:-3px;right:-3px;min-width:18px;height:18px;padding:0 4px;border-radius:99px;background:var(--pink);color:var(--fg);border:1.5px solid var(--fg);font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.sheet-bg{position:absolute;inset:0;z-index:8;display:flex;align-items:flex-end}
+.scrim{position:absolute;inset:0;background:rgba(20,16,26,.45);width:100%}
+.sheet{position:relative;width:100%;max-height:82%;overflow-y:auto;background:var(--ink);border-top:1.5px solid var(--fg);border-radius:26px 26px 0 0;padding:10px 16px calc(20px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:10px}
+.sheet .grab{width:44px;height:5px;border-radius:99px;background:var(--line);margin:0 auto 4px}
+.news{border:1.5px solid var(--fg);border-radius:18px;background:var(--panel);padding:12px;display:flex;flex-direction:column;gap:6px}
+.news .src{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.03em}
+.news p{margin:0;font-size:13px;line-height:1.45;color:var(--fg)}
+.news .cta{align-self:flex-start;display:inline-flex;align-items:center;gap:6px;border:1.5px solid var(--fg);border-radius:99px;padding:6px 12px;font-size:13px;font-weight:600;background:var(--lime);color:var(--fg);text-decoration:none}
+.news .cta svg{width:14px;height:14px}
+@media (prefers-reduced-motion:no-preference){.sheet{animation:up .22s ease-out}@keyframes up{from{transform:translateY(40px);opacity:.4}}}
 .dhead{display:flex;align-items:center;justify-content:space-between}
 .logo{display:flex;align-items:center;gap:6px;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:22px;color:var(--pink);letter-spacing:-.01em}
 .logo svg{width:26px;height:26px}
@@ -88,6 +94,29 @@ h1{font-size:23px} h2{font-size:18px} h3{font-size:14px;letter-spacing:.02em}
 .top3 b{display:block;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:13px;color:var(--pink-deep)}
 .top3 span{font-size:13px;font-weight:600;color:var(--fg)}
 .av.mag{background:#2A1414 url("images/magalie.webp") 50% 49%/280% auto no-repeat !important;color:transparent !important;border:1.5px solid var(--fg)}
+.nav .pbub{width:46px;height:46px;border-radius:50%;background:var(--pink);border:1.5px solid var(--fg);color:var(--fg);display:flex;align-items:center;justify-content:center;margin-top:-16px}
+.nav .pbub svg{width:24px;height:24px;stroke-width:2.4}
+.nav button.plus[aria-current="page"]{background:none}
+.modegrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.modebtn{border:1.5px solid var(--fg);border-radius:16px;background:var(--panel);padding:12px 6px;display:flex;flex-direction:column;align-items:center;gap:6px;font-size:12px;font-weight:600;text-align:center}
+.modebtn svg{width:26px;height:26px}
+.modebtn[aria-pressed="true"]{background:var(--pink)}
+.opt{border:1.5px solid var(--fg);border-radius:16px;padding:10px 12px;background:var(--panel);width:100%}
+.opt[aria-pressed="true"]{background:#FDE7F2;border-color:var(--pink-deep);box-shadow:0 0 0 1.5px var(--pink-deep)}
+.fld{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600}
+.fld input,.fld select,.fld textarea{border:1.5px solid var(--fg);border-radius:12px;padding:10px 12px;font:inherit;font-size:15px;font-weight:400;background:#fff;color:var(--fg)}
+.fld textarea{min-height:110px;resize:vertical;line-height:1.45}
+.modebtn .ord{position:absolute;top:6px;right:8px;width:20px;height:20px;border-radius:50%;background:var(--fg);color:#fff;font-size:11px;display:flex;align-items:center;justify-content:center}
+.modebtn{position:relative}
+.msg{white-space:pre-line;font-size:14px;line-height:1.5;margin:6px 0 0}
+.warn{background:#FFF3C4;border:1.5px solid var(--fg);border-radius:12px;padding:10px 12px;font-size:13px}
+.stepper2{display:flex;align-items:center;justify-content:space-between;padding:8px 12px}
+.stepper2 button{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--fg);background:var(--lime);font-size:24px;text-align:center;line-height:1}
+.stepper2 b{font-family:var(--display);font-size:28px}
+.thumb{width:84px;height:84px;border-radius:14px;border:1.5px solid var(--fg);background-size:cover;background-position:center;flex:none;display:flex;align-items:center;justify-content:center}
+.thumb[aria-pressed="true"]{outline:3px solid var(--pink);outline-offset:2px}
+.thumb svg{width:30px;height:30px}
+.crerr{color:var(--pink-deep);font-weight:600;font-size:13px}
 .trk{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--line)}
 .trk:last-child{border-bottom:0}
 .trk b{display:block;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -216,8 +245,7 @@ h1{font-size:23px} h2{font-size:18px} h3{font-size:14px;letter-spacing:.02em}
   .phone{width:100%;flex:1;height:auto;min-height:0;border:0;border-radius:0}
 }
 </style>
-</head>
-<body>
+
 <div class="stage">
   <div class="persona" role="group" aria-label="Choisir le persona">
     <button data-persona="lina" aria-pressed="true">Magalie, 19 ans</button>
@@ -227,6 +255,7 @@ h1{font-size:23px} h2{font-size:18px} h3{font-size:14px;letter-spacing:.02em}
     <main class="screen" id="screen" aria-live="polite"></main>
     <nav class="nav" id="nav" aria-label="Navigation principale"></nav>
     <div class="toast" id="toast" role="status"></div>
+    <div id="sheet"></div>
   </div>
   <p class="note" id="note">Prototype cliquable · données d'exemple</p>
 </div>
@@ -265,17 +294,17 @@ const $ = s => document.querySelector(s);
 
 /* Example venues around Lens (demo data) */
 const VENUES = [
-  {id:'louvre',  nom:'Louvre-Lens',           ville:'Lens',              type:'Musée',   icon:'museum', temps:'5 min',  trajets:4, quand:'Samedi 7 nov. · 14 h'},
-  {id:'pba',     nom:'Palais des Beaux-Arts', ville:'Lille',             type:'Musée',   icon:'museum', temps:'40 min', trajets:3, quand:'Samedi 7 nov. · 15 h'},
-  {id:'lam',     nom:'LaM',                   ville:"Villeneuve-d'Ascq", type:'Musée',   icon:'museum', temps:'40 min', trajets:2, quand:'Dimanche 8 nov. · 14 h'},
-  {id:'piscine', nom:'La Piscine',            ville:'Roubaix',           type:'Musée',   icon:'museum', temps:'45 min', trajets:1, quand:'Dimanche 8 nov. · 11 h'},
-  {id:'cine',    nom:'Cinéma de Lens',        ville:'Lens',              type:'Cinéma',  icon:'ticket', temps:'5 min',  trajets:2, quand:'Dimanche 8 nov. · 15 h'},
-  {id:'cinearras',nom:"Cinéma d'Arras",       ville:'Arras',             type:'Cinéma',  icon:'ticket', temps:'25 min', trajets:1, quand:'Vendredi 6 nov. · 20 h'},
-  {id:'lille',   nom:'Salle de concert',      ville:'Lille',             type:'Concert', icon:'mic',    temps:'40 min', trajets:2, quand:'Samedi 7 nov. · 21 h'},
-  {id:'theatre', nom:"Théâtre d'Arras",       ville:'Arras',             type:'Théâtre', icon:'masks',  temps:'25 min', trajets:1, quand:'Samedi 7 nov. · 20 h 30'}
+  {id:'louvre',  nom:'Louvre-Lens',           ville:'Lens',              type:'Musée',   icon:'museum', temps:'5 min',  trajets:4, quand:'Samedi 7 nov. · 14 h', km:4},
+  {id:'neufbis', nom:'9-9 bis',               ville:'Oignies',           type:'Musée',   icon:'museum', temps:'20 min', trajets:2, quand:'Samedi 7 nov. · 15 h', km:15, img:'images/9-9bis.jpg', alt:'Chevalements et bâtiments en briques du site minier du 9-9 bis'},
+  {id:'conservation', nom:'Centre de conservation du Louvre', ville:'Liévin', type:'Musée', icon:'museum', temps:'10 min', trajets:1, quand:'Mercredi 11 nov. · 14 h', km:5, img:'images/centre-conservation.jpg', alt:"Porte vitrée du Centre de conservation du Louvre, ouvert sur rendez-vous"},
+  {id:'lewarde', nom:'Centre historique minier', ville:'Lewarde',         type:'Musée',   icon:'museum', temps:'30 min', trajets:2, quand:'Dimanche 8 nov. · 14 h', km:30, img:'images/lewarde.jpg', alt:'Bâtiment en briques et chevalement du Centre historique minier de Lewarde'},
+  {id:'cine',    nom:'Cinéma de Lens',        ville:'Lens',              type:'Cinéma',  icon:'ticket', temps:'5 min',  trajets:2, quand:'Dimanche 8 nov. · 15 h', km:3},
+  {id:'cinearras',nom:"Cinéma d'Arras",       ville:'Arras',             type:'Cinéma',  icon:'ticket', temps:'25 min', trajets:1, quand:'Vendredi 6 nov. · 20 h', km:20},
+  {id:'lille',   nom:'Salle de concert',      ville:'Lille',             type:'Concert', icon:'mic',    temps:'40 min', trajets:2, quand:'Samedi 7 nov. · 21 h', km:40},
+  {id:'theatre', nom:"Théâtre d'Arras",       ville:'Arras',             type:'Théâtre', icon:'masks',  temps:'25 min', trajets:1, quand:'Samedi 7 nov. · 20 h 30', km:20}
 ];
 const TYPECOL = {'Musée':['var(--violet)','var(--violet-ink)'],'Cinéma':['var(--lime)','var(--lime-ink)'],'Concert':['var(--pink)','var(--pink-ink)'],'Théâtre':['var(--ochre)','var(--ochre-ink)']};
-const RENE  = {id:'rene', nom:'René', age:65, init:'R', col:'var(--ochre)', ink:'var(--ochre-ink)', h:'14 h 00', places:2, note:'4,9', tag:'Fan de musées', depart:'Place Jean Jaurès', duree:'12 min', part:'1,50 €', retour:'18 h',
+const RENE  = {id:'rene', nom:'René', age:65, init:'R', photo:'images/rene.webp', bgSize:'300% auto', pos:'55% 54%', col:'var(--ochre)', ink:'var(--ochre-ink)', h:'14 h 00', places:2, note:'4,9', tag:'Fan de musées', depart:'Place Jean Jaurès', duree:'12 min', part:'1,50 €', retour:'18 h',
   music:[{t:'On ira tous au paradis',a:'Michel Polnareff'},{t:'Alors on danse',a:'Stromae'},{t:'Santé',a:'Stromae'}], common:'Stromae'};
 const INES = {id:'ines', nom:'Inès', age:24, init:'I', col:'var(--lime)', ink:'var(--lime-ink)', h:'19 h 15', places:3, note:'4,7', tag:'Cinéphile', depart:'Gare de Lens', duree:'25 min', part:'2 €', retour:'23 h',
   music:[{t:'La grenade',a:'Clara Luciani'},{t:'One More Time',a:'Daft Punk'},{t:'Basique',a:'Orelsan'}], common:'Daft Punk'};
@@ -288,11 +317,11 @@ const YASMINE = {id:'yasmine', nom:'Yasmine', age:21, init:'Y', photo:'images/ya
   music:[{t:'La grenade',a:'Clara Luciani'},{t:'Tout oublier',a:'Angèle'},{t:'Papaoutai',a:'Stromae'}], common:'Angèle'};
 const LEA = {id:'lea', nom:'Léa', age:25, init:'L', photo:'images/lea.jpg', col:'var(--ochre)', ink:'var(--ochre-ink)', h:'19 h 45', places:2, note:'4,9', tag:'Passionnée de théâtre', depart:'Gare de Lens', duree:'25 min', part:'2 €', retour:'23 h 30',
   music:[{t:'One More Time',a:'Daft Punk'},{t:'Santé',a:'Stromae'},{t:'La grenade',a:'Clara Luciani'}], common:'Stromae'};
-const ANTOINE = {id:'antoine', nom:'Antoine', age:32, init:'A', photo:'images/antoine.jpg', col:'var(--violet)', ink:'var(--violet-ink)', h:'14 h 00', places:3, note:'4,9', tag:"Amateur d'art", depart:'Gare de Lens', duree:'40 min', part:'3 €', retour:'18 h 30',
+const ANTOINE = {id:'antoine', nom:'Antoine', age:32, init:'A', photo:'images/antoine.jpg', col:'var(--violet)', ink:'var(--violet-ink)', h:'14 h 00', places:3, note:'4,9', tag:"Amateur d'art", depart:'Gare de Lens', duree:'30 min', part:'3 €', retour:'18 h 30',
   music:[{t:'One More Time',a:'Daft Punk'},{t:'La grenade',a:'Clara Luciani'},{t:'Papaoutai',a:'Stromae'}], common:'Clara Luciani'};
 const KENZO = {id:'kenzo', nom:'Kenzo', age:20, init:'K', photo:'images/kenzo.jpg', col:'var(--pink)', ink:'var(--pink-ink)', h:'14 h 30', places:3, note:'4,8', tag:'Fan de rap', depart:'Liévin', duree:'10 min', part:'1 €', retour:'18 h',
   music:[{t:'Au DD',a:'PNL'},{t:'Pookie',a:'Aya Nakamura'},{t:'La quête',a:'Orelsan'}], common:'PNL'};
-const PH = t => t && t.photo ? `background-image:url('${t.photo}');background-size:cover;background-position:center 22%;color:transparent` : '';
+const PH = t => t && t.photo ? `background-image:url('${t.photo}');background-size:${t.bgSize||'cover'};background-position:${t.pos||'center 22%'};color:transparent` : '';
 const sarah = (h, duree, part, tag, retour) => ({id:'sarah', nom:'Sarah', age:22, init:'S', col:'var(--pink)', ink:'var(--pink-ink)', h, places:2, note:'4,8', tag, depart:'Gare de Lens', duree, part, retour,
   music:[{t:'Balance ton quoi',a:'Angèle'},{t:'Djadja',a:'Aya Nakamura'},{t:'Tout oublier',a:'Angèle'}], common:'Angèle'});
 
@@ -307,8 +336,8 @@ SORTIES.aeronef = {titre:'Miki + Jäde', quand:'Vendredi 13 nov. · 20 h', lieu:
 SORTIES.cinearras = {titre:'Ciné du vendredi', quand:'Vendredi 6 nov. · 20 h', lieu:"Cinéma d'Arras", icon:'ticket', img:'images/header.webp', imgAlt:'Deux jeunes partent en road trip en voiture', bg:'var(--lime)', ink:'var(--lime-ink)', prix:'8 € · −3 € avec ton Pass trajet', dispo:'1 trajet proposé',
   trajets:[INES], bus:{ligne:'Train Lens → Arras', duree:'35 min', prix:'Billet couplé', icon:'train'}};
 };
-VENUES.push({id:'aeronef', nom:"L'Aéronef", ville:'Lille', type:'Concert', icon:'mic', temps:'40 min', trajets:2, quand:'Vendredi 13 nov. · 20 h'});
-const DECK = [{s:'aeronef',t:'sarah'},{s:'louvre',t:'naia'},{s:'lille',t:'hugo'},{s:'cinearras',t:'yasmine'},{s:'theatre',t:'lea'},{s:'pba',t:'antoine'},{s:'cine',t:'kenzo'}];
+VENUES.push({id:'aeronef', nom:"L'Aéronef", ville:'Lille', type:'Concert', icon:'mic', temps:'40 min', trajets:2, quand:'Vendredi 13 nov. · 20 h', km:40});
+const DECK = [{s:'aeronef',t:'sarah'},{s:'louvre',t:'naia'},{s:'lille',t:'hugo'},{s:'cinearras',t:'yasmine'},{s:'theatre',t:'lea'},{s:'lewarde',t:'antoine'},{s:'cine',t:'kenzo'}];
 const CATALOG = [
   {id:'c1',t:'Santé',a:'Stromae'},{id:'c2',t:'Bruxelles je t’aime',a:'Angèle'},{id:'c3',t:'Pookie',a:'Aya Nakamura'},
   {id:'c4',t:'La quête',a:'Orelsan'},{id:'c5',t:'One More Time',a:'Daft Punk'},{id:'c6',t:'La grenade',a:'Clara Luciani'},
@@ -316,7 +345,7 @@ const CATALOG = [
 const CAT = id => CATALOG.find(c=>c.id===id);
 
 const SORTIES = {
-  louvre:{titre:'Expo au Louvre-Lens', quand:'Samedi 7 nov. · 14 h', lieu:'Louvre-Lens', icon:'museum', img:'images/louvre-lens.png', imgAlt:"Salle d'exposition du Louvre-Lens avec des statues antiques", bg:'var(--violet)', ink:'var(--violet-ink)', prix:'10 € · −3 € avec ton Pass trajet', dispo:'4 voitures partent de Lens',
+  louvre:{titre:'Expo au Louvre-Lens', quand:'Samedi 7 nov. · 14 h', lieu:'Louvre-Lens', icon:'museum', img:'images/louvre-lens-ext.webp', imgAlt:'Façade en verre du Louvre-Lens au coucher du soleil', bg:'var(--violet)', ink:'var(--violet-ink)', prix:'10 € · −3 € avec ton Pass trajet', dispo:'4 voitures partent de Lens',
     trajets:[RENE, sarah('13 h 30','8 min','1 €','Étudiante en art','17 h 30')], bus:{ligne:'Bus · arrêt Louvre-Lens', duree:'25 min', prix:'1,10 €', icon:'bus'}},
   lille:{titre:'Concert à Lille', quand:'Samedi 7 nov. · 21 h', lieu:'Salle de concert, Lille', icon:'mic', bg:'var(--pink)', ink:'var(--pink-ink)', prix:'18 € · −3 € avec ton Pass trajet', dispo:'Train + 2 covoits dispo',
     trajets:[sarah('19 h 45','40 min','3 €','Fan de rap','00 h 30')], bus:{ligne:'Train Lens → Lille', duree:'40 min', prix:'Billet couplé', icon:'train'}}
@@ -326,24 +355,48 @@ function getSortie(id){
   const v = VENUES.find(x=>x.id===id) || VENUES[0];
   const c = TYPECOL[v.type];
   const titre = v.type==='Musée' ? 'Expo · '+v.nom : v.type==='Cinéma' ? 'Séance · '+v.nom : v.type+' · '+v.nom;
-  return SORTIES[id] = {titre, quand:v.quand, lieu:v.nom+(v.nom.includes(v.ville)?'':', '+v.ville), icon:v.icon, bg:c[0], ink:c[1],
+  return SORTIES[id] = {titre, quand:v.quand, lieu:v.nom+(v.nom.includes(v.ville)?'':', '+v.ville), icon:v.icon, img:v.img, imgAlt:v.alt, bg:c[0], ink:c[1],
     prix:'−3 € avec ton Pass trajet', dispo:v.trajets+' trajet'+(v.trajets>1?'s':'')+' proposé'+(v.trajets>1?'s':''),
     trajets:[sarah(v.quand.split('·')[1].trim(), v.temps, v.ville==='Lens'?'1 €':'2,50 €', 'Curieuse de tout', '23 h')],
     bus:{ligne: v.ville==='Lens' ? 'Bus · réseau local' : 'Train + bus', duree: v.temps.replace(/\d+/, n => String(+n+10)), prix:'Billet couplé', icon: v.ville==='Lens'?'bus':'train'}};
 }
 
+/* Custom outings ("Créer") */
+I.bike='<circle cx="6" cy="17" r="3.5"/><circle cx="18" cy="17" r="3.5"/><path d="M6 17l4-8h5l3 8M10 9L8.5 6H6M15 9l-2.5 8"/>';
+I.skate='<path d="M3 14h18"/><circle cx="7" cy="17.5" r="1.5"/><circle cx="17" cy="17.5" r="1.5"/><path d="M2 12c.5 1.3 1 2 2 2M22 12c-.5 1.3-1 2-2 2"/>';
+I.walk='<circle cx="13" cy="4" r="2"/><path d="M11 21l2-6-3-3 1-5 4 3 3 1M8 13l-2 3"/>';
+const MODES = {voiture:['car','Voiture',"Covoit' vers",'Voiture'], velo:['bike','Vélo','Bande à vélo vers','Bande à vélo'], skate:['skate','Skate / trott.','Bande en skate vers','Bande en skate'], pied:['walk','À pied','Balade à pied vers','À pied'], bus:['bus','Transports','En transports vers','Transports en commun']};
+const WHO = {tous:'Ouverte à tous', equipage:'Mon équipage', amis:'Mes amis'};
+const WHOD = {tous:'Visible par tout le monde dans Découverte', equipage:'Seulement les membres de tes équipages', amis:'Seulement les personnes que tu invites'};
+const FILTRES = ['Entre femmes','Membres de ma fac','18-25 ans'];
+const TAGS = ['Chill','Débutants bienvenus','Sportif','Sortie du soir','Première fois'];
+const RDV = ['Gare de Lens','Lens centre','Place Jean Jaurès','Liévin','Avion'];
+const CRSTART = () => ({step:1, q:'', venue:null, modes:[], rdv:'Gare de Lens', heure:'13:30', places:3, who:'tous', filtres:[], valid:'direct', photo:'lieu', titre:'', message:'', tags:[], playlist:true, err:''});
+const modeList = t => t.modes || [t.mode || 'voiture'];
+const modeLabel = arr => arr.length===1 ? MODES[arr[0]][3] : arr.map(k=>MODES[k][1]).join(' → ');
+const fmtH = h => h ? h.replace(':',' h ') : '—';
+/* CO2 avoided: car ~0.2 kg CO2/km (ADEME order of magnitude), round trip, one fewer solo car; transit ~70 % of that */
+const KG_KM = 0.2;
+const kmOf = sid => { const s=SORTIES[sid]; if(s && s.km) return s.km; const v=VENUES.find(x=>x.id===sid); return v ? v.km : 10; };
+const co2For = (sid, transit) => Math.round(kmOf(sid)*2*KG_KM*(transit?0.7:1));
+function crResults(){
+  const q = norm(S.cr.q.trim());
+  const list = VENUES.filter(v => !q || norm(v.nom+' '+v.ville+' '+v.type).includes(q)).slice(0,6);
+  if(!list.length) return `<div class="card" style="background:var(--panel2)"><b>Aucun lieu trouvé</b><div class="sub">Essaie « musée », « cinéma » ou une ville.</div></div>`;
+  return list.map(v=>{const c=TYPECOL[v.type];return `<button class="opt tap" data-crvenue="${v.id}" aria-pressed="${S.cr.venue===v.id}"><div class="row"><div class="ico" style="background:${c[0]};color:${c[1]};border:1.5px solid var(--fg)">${ic(v.icon)}</div><div style="min-width:0"><b>${v.nom}</b><div class="sub">${v.type} · ${v.ville} · ${v.quand}</div></div></div></button>`}).join('');
+}
 EXTRA();
 SORTIES.louvre.trajets.push(NAIA);
 SORTIES.lille.trajets.push(HUGO);
 SORTIES.cinearras.trajets.push(YASMINE);
 getSortie('theatre').trajets.push(LEA);
-getSortie('pba').trajets.push(ANTOINE);
+getSortie('lewarde').trajets.push(ANTOINE);
 getSortie('cine').trajets.push(KENZO);
 const START = () => ({
   screen:'welcome', role:'passager', mode:'covoit', sortie:'louvre', trajetId:'rene', from:'home',
-  q:'', filter:'Tout', tq:'', tracks:[], spotify:false, dIdx:0, dHist:[], favs:[], booked:false, tripStep:0, passUsed:false, tcUsed:false, reward:null, crew:null, playlist:false, lastQuest:'',
+  q:'', filter:'Tout', tq:'', tracks:[], spotify:false, dIdx:0, dHist:[], favs:[], cr:CRSTART(), myCount:0, mine:[], booked:false, tripStep:0, passUsed:false, tcUsed:false, reward:null, crew:null, playlist:false, lastQuest:'',
   quests:{plein:2, pont:0, retour:0, combo:1, zero:0}, collectif:72,
-  sorties:3, euros:11, co2:6, cards:3
+  sorties:3, euros:11, co2:26, cards:3
 });
 let S = START();
 const curS = () => getSortie(S.sortie);
@@ -361,7 +414,30 @@ function tresultsHTML(){
 const nowHM = () => { const d=new Date(); return d.getHours()+' h '+String(d.getMinutes()).padStart(2,'0'); };
 
 function toast(msg){const t=$('#toast');t.textContent=msg;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('show'),2400)}
-function go(screen, extra={}){Object.assign(S, extra, {screen}); render(); $('#screen').scrollTop=0}
+function go(screen, extra={}){S.notif=false; Object.assign(S, extra, {screen}); render(); $('#screen').scrollTop=0}
+
+/* Partner news shown when the bell is tapped (demo content, except the ADEME tool and the study figure) */
+I.ext='<path d="M14 4h6v6M20 4l-9 9"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/>';
+const NEWS = [
+  {kind:'Challenge', src:'ADEME', col:'var(--lime)', title:'Novembre sans voiture solo', text:'Fais 4 sorties en covoit, en transports ou en bande ce mois-ci.', reward:'100 ★ et le badge Éco-héros', until:"Jusqu'au 30 nov.", prog:[2,4], cta:'Je relève le défi'},
+  {kind:'Offre', src:'Louvre-Lens', col:'var(--violet)', title:"−50 % sur l'expo pour les voitures pleines", text:'Viens à 3 ou plus en covoit : chaque personne paie son entrée à moitié prix.', reward:'Avec ton Pass trajet', until:'Ce week-end', cta:"J'en profite", sortie:'louvre'},
+  {kind:'Offre', src:'Centre historique minier', col:'var(--ochre)', title:'Le conducteur entre gratuitement', text:'Tu emmènes au moins 2 personnes à Lewarde ? Ton entrée est offerte.', reward:'Entrée offerte', until:"Jusqu'au 15 nov.", cta:"J'en profite", sortie:'lewarde'},
+  {kind:'Challenge', src:'9-9 bis', col:'var(--pink)', title:'Défi bande à vélo', text:'Venez à 4 ou plus à vélo jusqu’au 9-9 bis : une boisson offerte à toute la bande.', reward:'Boisson offerte et 30 ★', until:'Tout le mois', prog:[0,1], cta:'Je relève le défi'},
+  {kind:'Offre', src:'Cinéma de Lens', col:'var(--lime)', title:'Popcorn offert pour 2 places', text:'Pour toute séance réservée avec un trajet partagé Go’Cultur.', reward:'Popcorn offert', until:'Tous les jeudis', cta:"J'en profite", sortie:'cine'}
+];
+function sheetHTML(){
+  return `<div class="sheet-bg"><button class="scrim" data-act="notifclose" aria-label="Fermer les actus"></button>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-t">
+    <div class="grab" aria-hidden="true"></div>
+    <div class="between"><h2 id="sheet-t">Offres et défis du moment</h2><button class="back" id="sheet-x" data-act="notifclose" aria-label="Fermer">${ic('x')}</button></div>
+    <p class="sub" style="margin:0">Offres d'exemple imaginées pour la démo.</p>
+    ${NEWS.map(n=>`<article class="news"><div class="between"><div class="src"><span style="width:10px;height:10px;border-radius:50%;background:${n.col};border:1.5px solid var(--fg)"></span>${n.src}</div><span class="pill" style="background:${n.kind==='Offre'?'var(--pink)':'var(--lime)'};color:var(--fg);border:1.5px solid var(--fg);font-size:11px;padding:2px 9px">${n.kind}</span></div>
+      <h3>${n.title}</h3><p>${n.text}</p>
+      ${n.prog ? `<div><div class="bar" style="margin-top:2px"><i style="width:${Math.max(4,Math.round(n.prog[0]/n.prog[1]*100))}%;background:var(--pink)"></i></div><div class="sub" style="margin-top:4px">${n.prog[0]}/${n.prog[1]} ${n.prog[1]>1?'sorties':'sortie'}</div></div>` : ''}
+      <div class="between" style="gap:8px;flex-wrap:wrap"><span class="row" style="gap:6px;font-size:13px;font-weight:700"><span style="width:16px;height:16px;flex:none">${ic('gift','width="16" height="16"')}</span>${n.reward}</span><span class="sub">${n.until}</span></div>
+      ${n.sortie ? `<button class="cta" data-sortie="${n.sortie}">${n.cta}</button>` : `<button class="cta" data-act="chal">${n.cta}</button>`}</article>`).join('')}
+  </div></div>`;
+}
 const topbar = (title, to='home') => `<div class="top"><button class="back" data-go="${to}" aria-label="Retour">${ic('back')}</button><span class="sub">${title}</span></div>`;
 
 function passHTML({who, lieu, date, mode, used, usedMsg, simple}){
@@ -399,7 +475,7 @@ welcome(){ return `
   <button class="btn btn-main tap" data-go="home">C'est parti</button>`},
 
 home(){ const q=S.quests; return `
-  <div class="hero" role="img" aria-label="Deux jeunes partent en road trip en voiture"><span class="hero-chip">Lens · jeudi</span><span class="hero-bell">${ic('bell')}</span><span class="brand blogo"><img src="images/logo-noir.png" alt="Go'Cultur"></span></div>
+  <div class="hero" role="img" aria-label="Deux jeunes partent en road trip en voiture"><span class="hero-chip">Lens · jeudi</span><button class="hero-bell" data-act="notif" aria-label="Actus des partenaires${S.notifSeen?'':', 5 nouvelles'}">${ic('bell')}${S.notifSeen?'':'<span class="dot" aria-hidden="true">5</span>'}</button><span class="brand blogo"><img src="images/logo-noir.png" alt="Go'Cultur"></span></div>
   <h1>Salut Magalie, on sort où ce week-end&nbsp;?</h1>
   <button class="search" data-go="search">${ic('search')}<span class="sub" style="padding:11px 0;font-size:15px">Un lieu, une expo, une ville…</span></button>
   ${S.booked && S.tripStep<3 ? `<button class="card tap" data-go="trip" style="background:var(--teal);color:var(--teal-ink)"><div class="between"><b>Ton prochain trajet</b><span class="pill" style="background:var(--teal-ink);color:var(--teal)">${curT().h}</span></div><div style="font-size:13px">Avec ${curT().nom} · ${curT().depart} → ${curS().lieu}</div></button>`:''}
@@ -408,12 +484,74 @@ home(){ const q=S.quests; return `
     <h3 style="margin-top:10px">Voiture pleine</h3>
     <div style="font-size:13px">Viens à 3 dans une voiture, gagne ta place de ciné</div>
   </button>
-  <h3 style="margin-top:6px">Ce week-end près de toi</h3>
-  ${['louvre','lille'].map(k=>{const s=SORTIES[k];return `<button class="card tap" data-sortie="${k}"><div class="row"><div class="ico" style="background:${s.bg};color:${s.ink}">${ic(s.icon)}</div><div style="min-width:0"><b>${s.titre}</b><div class="sub">${s.quand}</div><div style="font-size:12px;color:var(--pink-deep);font-weight:600;margin-top:2px">${s.dispo}</div></div></div></button>`}).join('')}
+  <h3 style="margin-top:6px">Expos près de toi</h3>
+  ${["louvre","neufbis","conservation","lewarde"].map(k=>{const s=getSortie(k);return `<button class="card tap" data-sortie="${k}"><div class="row"><div class="ico" style="border:1.5px solid var(--fg);${s.img?`background:center/cover no-repeat url('${s.img}')`:`background:${s.bg};color:${s.ink}`}">${s.img?"":ic(s.icon)}</div><div style="min-width:0"><b>${s.lieu}</b><div class="sub">${s.quand}</div><div style="font-size:12px;color:var(--pink-deep);font-weight:600;margin-top:2px">${s.dispo}</div></div></div></button>`}).join("")}
+  <h3 style="margin-top:6px">Concerts et sorties</h3>
+  ${['lille','cinearras'].map(k=>{const s=getSortie(k);return `<button class="card tap" data-sortie="${k}"><div class="row"><div class="ico" style="background:${s.bg};color:${s.ink}">${ic(s.icon)}</div><div style="min-width:0"><b>${s.titre}</b><div class="sub">${s.quand}</div><div style="font-size:12px;color:var(--pink-deep);font-weight:600;margin-top:2px">${s.dispo}</div></div></div></button>`}).join('')}
   <div class="card" style="background:var(--panel2)"><div class="row"><div class="ico" style="background:var(--ink);color:var(--teal)">${ic('leaf')}</div><div><b>${S.co2} kg de CO₂ évités</b><div class="sub">depuis que tu partages tes trajets</div></div></div></div>`},
 
+creer(){
+  const cr=S.cr, st=cr.step, v=VENUES.find(x=>x.id===cr.venue);
+  const head=`<div class="top"><button class="back" data-act="crprev" aria-label="Retour">${ic('back')}</button><span class="sub">Créer une sortie · ${st<5?'étape '+st+' sur 4':'aperçu'}</span></div><div class="steps" aria-hidden="true">${[1,2,3,4].map(i=>`<i class="${i<=st?'on':''}"></i>`).join('')}</div>`;
+  const err = cr.err ? `<div class="crerr" role="alert">${cr.err}</div>` : '';
+  const next = (label='Suivant') => `<button class="btn btn-main tap" data-act="crnext">${label}</button>`;
+  if(st===1) return `${head}<h1>Où on va&nbsp;?</h1>
+    <label class="search" for="cq">${ic('search')}<input id="cq" type="search" placeholder="Un lieu, une ville…" value="${esc(cr.q)}" autocomplete="off" aria-label="Rechercher un lieu culturel"></label>
+    <div class="list" id="crres">${crResults()}</div>${err}${next()}`;
+  if(st===2){
+    const ms=cr.modes, soft=ms.length>0 && ms.every(k=>['velo','skate','pied'].includes(k)), mins=v?parseInt(v.temps):0, car=ms.includes('voiture');
+    return `${head}<h1>Comment on y va&nbsp;?</h1>
+    <p class="sub" style="margin:0">Choisis un ou plusieurs modes, dans l'ordre du trajet.</p>
+    <div class="modegrid" role="group" aria-label="Modes de transport">${Object.entries(MODES).map(([k,m])=>{const i=ms.indexOf(k);return `<button class="modebtn tap" data-crmode="${k}" aria-pressed="${i>=0}">${i>=0&&ms.length>1?`<span class="ord" aria-hidden="true">${i+1}</span>`:''}${ic(m[0])}${m[1]}</button>`}).join('')}</div>
+    ${ms.length>1 ? `<div class="card" style="background:var(--panel2)"><b>Trajet mixte : ${modeLabel(ms)}</b><div class="sub">Explique les étapes dans ton message à l'étape 4 (où on change de mode, à quelle heure).</div></div>` : ''}
+    ${soft && mins>15 ? `<div class="warn"><b>${v.nom} est à ${v.temps} de Lens en voiture.</b> Sans voiture ni transports, ça risque d'être long. Ajoute le train ou la voiture pour une partie du trajet&nbsp;?</div>` : ''}
+    <label class="fld" for="crrdv">Point de rendez-vous<select id="crrdv">${RDV.map(r=>`<option ${cr.rdv===r?'selected':''}>${r}</option>`).join('')}</select></label>
+    <label class="fld" for="crh">Heure de départ<input id="crh" type="time" value="${cr.heure}"></label>
+    ${ms.length ? `<div class="fld">${car?'Places dans la voiture':'Taille de la bande'}<div class="card stepper2"><button data-act="crminus" aria-label="Une place de moins">−</button><b aria-live="polite">${cr.places}</b><button data-act="crplus" aria-label="Une place de plus">+</button></div></div>` : ''}
+    ${err}${next()}`;
+  }
+  if(st===3) return `${head}<h1>Avec qui&nbsp;?</h1>
+    ${Object.entries(WHO).map(([k,l])=>`<button class="opt tap" data-crwho="${k}" aria-pressed="${cr.who===k}"><b>${l}</b><div class="sub">${WHOD[k]}</div></button>`).join('')}
+    <h3>Filtres de confiance</h3>
+    <div class="chips" role="group" aria-label="Filtres de confiance">${FILTRES.map(f=>`<button data-crfilt="${f}" aria-pressed="${cr.filtres.includes(f)}">${f}</button>`).join('')}</div>
+    <h3>Pour rejoindre</h3>
+    <div class="seg" role="group" aria-label="Comment rejoindre"><button data-crvalid="direct" aria-pressed="${cr.valid==='direct'}">Directement</button><button data-crvalid="demande" aria-pressed="${cr.valid==='demande'}">Sur demande</button></div>
+    ${next()}`;
+  if(st===4){
+    const base=getSortie(v.id);
+    const opts=[['lieu',base.img,'Photo du lieu'],['images/header.webp','images/header.webp','Photo road trip'],['images/concert.jpg','images/concert.jpg','Photo concert']];
+    return `${head}<h1>L'ambiance</h1>
+    <div class="fld">Photo de couverture<div class="row" style="gap:10px">${opts.map(([k,src,l])=>`<button class="thumb" data-crphoto="${k}" aria-pressed="${cr.photo===k}" aria-label="${l}" style="${src?`background-image:url('${src}')`:`background:${base.bg};color:${base.ink}`}">${src?'':ic(v.icon)}</button>`).join('')}</div></div>
+    <label class="fld" for="crt">Titre de la sortie<input id="crt" type="text" maxlength="40" value="${esc(cr.titre)}" placeholder="Bande à vélo vers le Louvre-Lens"></label>
+    <label class="fld" for="crmsg">Ton message<span class="sub" style="font-weight:400">Raconte comment la sortie va se passer : le programme, les étapes, l'ambiance.</span><textarea id="crmsg" maxlength="280" placeholder="On se retrouve à 13 h 30 à la gare de Lens. Vélo jusqu'à la gare, train jusqu'à Lille, puis concert ! On boit un verre après si vous êtes chauds.">${esc(cr.message)}</textarea><span class="sub" style="font-weight:400;text-align:right"><span id="crmsgc">${cr.message.length}</span>/280</span></label>
+    <div class="fld">Tags<div class="chips" role="group" aria-label="Tags">${TAGS.map(tg=>`<button data-crtag="${tg}" aria-pressed="${cr.tags.includes(tg)}">${tg}</button>`).join('')}</div></div>
+    <button class="opt tap" data-act="crplaylist" aria-pressed="${cr.playlist}"><div class="between"><span class="row" style="gap:8px"><span style="width:20px;height:20px;flex:none">${ic('music','width="20" height="20"')}</span><b>Playlist du trajet</b></span><span class="sub">${cr.playlist?'Activée':'Désactivée'}</span></div></button>
+    ${err}${next("Voir l'aperçu")}`;
+  }
+  const base=getSortie(v.id), img = cr.photo==='lieu' ? base.img : cr.photo;
+  return `${head}<h1>Aperçu</h1><p class="sub" style="margin:0">Voilà comment ta sortie apparaîtra dans Découverte.</p>
+    <div class="dcard" style="height:340px;cursor:default;${img?`background-image:url('${img}')`:`background-color:${base.bg}`}">
+      ${img?'<span class="vh">Photo de couverture de la sortie</span>':`<div class="dicon" style="color:${base.ink}">${ic(v.icon)}</div>`}
+      <span class="pill dpill"><span class="av mag" style="width:20px;height:20px;font-size:10px">M</span>Organisé par toi · ${cr.places} places</span>
+      <div class="dinfo"><h2>${esc(cr.titre)}</h2><div class="dm">${v.quand}</div><div class="dp">${base.lieu.replace(', ',' – ')}</div><div class="dt">${modeLabel(cr.modes)} · départ ${cr.rdv} · ${fmtH(cr.heure)}</div></div>
+    </div>
+    ${cr.message.trim() ? `<div class="card"><div class="row" style="gap:8px"><span class="av mag" style="width:28px;height:28px">M</span><b>Le mot de Magalie</b></div><p class="msg">${esc(cr.message.trim())}</p></div>` : ''}
+    <div class="row" style="flex-wrap:wrap;gap:6px">${cr.tags.map(tg=>`<span class="pill" style="background:var(--lime);color:var(--lime-ink);border:1.5px solid var(--fg)">${tg}</span>`).join('')}<span class="pill" style="background:#fff;border:1.5px solid var(--fg)">${WHO[cr.who]}${cr.valid==='demande'?' · sur demande':''}</span>${cr.filtres.map(f=>`<span class="pill" style="background:#fff;border:1.5px solid var(--fg)">${f}</span>`).join('')}</div>
+    <button class="btn btn-main tap" data-act="crpublish">Publier ma sortie</button>
+    <button class="btn btn-ghost tap" data-act="crprev">Modifier</button>`;
+},
+
+creerok(){ return `
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:14px;text-align:center">
+    <div class="pulse" style="background:var(--lime);color:var(--lime-ink)">${ic('check')}</div>
+    <h1>Ta sortie est en ligne&nbsp;!</h1>
+    <p class="sub" style="margin:0">Elle apparaît en premier dans Découverte. Tu seras prévenue dès que quelqu'un la rejoint.</p>
+  </div>
+  <button class="btn btn-main tap" data-act="crsee">Voir dans Découverte</button>
+  <button class="btn btn-ghost tap" data-act="crnew">Créer une autre sortie</button>`},
+
 decouverte(){
-  const head = `<div class="dhead"><img class="logoimg" src="images/logo.png" alt="Go'Cultur"><div class="row" style="gap:2px"><button class="iconbtn" data-act="notif" aria-label="Notifications">${ic('bell','style="fill:currentColor"')}</button><button class="iconbtn" data-go="search" aria-label="Filtres">${ic('sliders')}</button></div></div>`;
+  const head = `<div class="dhead"><img class="logoimg" src="images/logo.png" alt="Go'Cultur"><div class="row" style="gap:2px"><button class="iconbtn" data-act="notif" aria-label="Actus des partenaires${S.notifSeen?'':', 5 nouvelles'}">${ic('bell','style="fill:currentColor"')}${S.notifSeen?'':'<span class="dot" aria-hidden="true">5</span>'}</button><button class="iconbtn" data-go="search" aria-label="Filtres">${ic('sliders')}</button></div></div>`;
   if(S.dIdx >= DECK.length) return `${head}
     <div class="card" style="text-align:center;padding:24px 16px"><h2>Tu as tout vu&nbsp;!</h2><p class="sub" style="margin:8px 0 0">De nouveaux trajets arrivent chaque jour.</p></div>
     <h3>Tes favoris (${S.favs.length})</h3>
@@ -421,17 +559,18 @@ decouverte(){
     <button class="btn btn-main tap" data-act="dreset">Revoir les trajets</button>`;
   const c=DECK[S.dIdx], s=getSortie(c.s), t=s.trajets.find(x=>x.id===c.t)||s.trajets[0];
   return `${head}
-  <div class="dcard" id="dcard" style="${t.photo?`background-image:url('${t.photo}');background-position:center 20%`:s.img?`background-image:url('${s.img}')`:`background-color:${s.bg}`}">
-    ${t.photo ? `<span class="vh">Photo de ${t.nom}, conducteur du trajet</span>` : s.img ? `<span class="vh">${s.imgAlt}</span>` : `<div class="dicon" style="color:${s.ink}">${ic(s.icon)}</div>`}
-    <span class="pill dpill"><span class="av" style="width:20px;height:20px;font-size:10px;background:${t.col};color:${t.ink};${PH(t)}">${t.init}</span>${t.nom}, ${t.age} ans · ${t.places} places</span>
+  ${(()=>{const usePh = t.photo && !c.mine; return `<div class="dcard" id="dcard" style="${usePh?`background-image:url('${t.photo}');background-position:center 20%`:s.img?`background-image:url('${s.img}')`:`background-color:${s.bg}`}">
+    ${usePh ? `<span class="vh">Photo de ${t.nom}, conducteur du trajet</span>` : s.img ? `<span class="vh">${s.imgAlt}</span>` : `<div class="dicon" style="color:${s.ink}">${ic(s.icon)}</div>`}`})()}
+    <span class="pill dpill"><span class="av" style="width:20px;height:20px;font-size:10px;background:${t.col};color:${t.ink};${PH(t)}">${t.init}</span>${c.mine?'Organisé par toi':t.nom+', '+t.age+' ans'} · ${t.places} places</span>
     <span class="dstamp like" id="slike">Garder</span><span class="dstamp nope" id="snope">Passer</span>
-    <div class="dinfo"><h2>${s.titre}</h2><div class="dm">${s.quand}</div><div class="dp">${s.lieu.replace(', ',' – ')}</div><div class="dt">Départ ${t.depart} · ${t.h} · ${t.part}</div></div>
+    <div class="dinfo"><h2>${s.titre}</h2><div class="dm">${s.quand}</div><div class="dp">${s.lieu.replace(', ',' – ')}</div><div class="dt">${modeLabel(modeList(t))} · départ ${t.depart} · ${t.h} · ${t.part}</div></div>
   </div>
   <div class="dbtns">
     <button class="dbtn sm" data-act="dback" aria-label="Revenir au trajet précédent">${ic('refresh')}</button>
     <button class="dbtn" data-act="dpass" aria-label="Passer ce trajet">${ic('x')}</button>
     <button class="dbtn" data-act="dlike" aria-label="Garder ce trajet en favori">${ic('star','style="fill:currentColor"')}</button>
   </div>
+  ${t.msg ? `<div class="card"><div class="row" style="gap:8px"><span class="av" style="width:28px;height:28px;font-size:11px;background:${t.col};color:${t.ink};${PH(t)}">${t.init}</span><b>Le mot de ${t.nom}</b></div><p class="msg">${esc(t.msg)}</p></div>` : ''}
   <button class="btn btn-main tap" data-act="dopen">Voir le trajet</button>
   <h3 style="color:var(--pink-deep)">Top 3 de la playlist de ${t.nom}</h3>
   <div class="top3">${t.music.slice(0,3).map(m=>`<div class="row"><div class="cover">${ic('music')}</div><div style="min-width:0"><b>${m.t}</b><span>${m.a}</span></div></div>`).join('')}</div>
@@ -466,11 +605,13 @@ trajet(){ const t=curT(), s=curS(); return `
     <div class="row" style="flex-wrap:wrap;gap:6px;margin-top:10px"><span class="pill" style="background:${t.col};color:${t.ink}">${t.tag}</span>${t.age>=50?'<span class="pill" style="background:var(--teal);color:var(--teal-ink)">Pont des générations</span>':''}</div>
     <div class="row" style="gap:6px;margin-top:10px;font-size:13px"><span style="width:16px;height:16px;flex:none">${ic('music','width="16" height="16"')}</span>${S.spotify ? `<span>Vous aimez tous les deux <b>${t.common}</b></span>` : `<span class="sub">Connecte Spotify pour voir vos goûts en commun</span>`}</div>
   </div>
+  ${modeList(t).length>1 || t.mine ? `<div class="card" style="background:var(--panel2)"><div class="row" style="gap:8px;flex-wrap:wrap">${modeList(t).map((k,i)=>`${i?'<span aria-hidden="true">→</span>':''}<span class="pill" style="background:#fff;border:1.5px solid var(--fg)">${ic(MODES[k][0],'width="14" height="14"')} ${MODES[k][1]}</span>`).join('')}</div></div>` : ''}
+  ${t.msg ? `<div class="card"><b>Le mot de ${t.nom}</b><p class="msg">${esc(t.msg)}</p></div>` : ''}
   <div class="grid3"><div class="stat"><span class="sub">Places</span><b>${t.places}</b></div><div class="stat"><span class="sub">Ta part</span><b>${t.part}</b></div><div class="stat"><span class="sub">Retour</span><b style="font-size:18px">${t.retour}</b></div></div>
   <button class="card tap" data-go="playlist" style="background:var(--lime);color:var(--lime-ink)"><div class="between"><div class="row"><span style="width:22px;height:22px;flex:none">${ic('music','width="22" height="22"')}</span><div><b>Playlist du trajet</b><div style="font-size:13px">${S.tracks.length ? S.tracks.length+'/3 de tes sons ajoutés · '+allTracks().length+' sons au total' : 'Ajoute 3 sons avant de partir'}</div></div></div><span style="width:18px;height:18px;transform:rotate(180deg);flex:none">${ic('back','width="18" height="18"')}</span></div></button>
   <div class="card" style="background:var(--panel2)"><div class="row"><span style="width:20px;height:20px;color:var(--lime);flex:none">${ic('pin','width="20" height="20"')}</span><span style="font-size:13px">Rendez-vous ${t.depart}. À l'arrivée, tu reçois ton Pass trajet pour la réduction à la caisse.</span></div></div>
   <div style="flex:1"></div>
-  <button class="btn btn-main tap" data-act="book">Je monte à bord</button>`},
+  ${t.mine ? `<button class="btn btn-main tap" data-act="share">Partager ma sortie</button>` : `<button class="btn btn-main tap" data-act="book">Je monte à bord</button>`}`},
 
 playlist(){ const t=curT(), s=curS(), all=allTracks(); return `
   ${topbar('Playlist du trajet','trajet')}
@@ -529,7 +670,7 @@ souvenir(){ const t=curT(), s=curS(); return `
   <div class="polaroid">
     <div class="photo" style="background:${s.bg};color:${s.ink}"><div class="big">${ic(s.icon,'width="130" height="130"')}</div><div style="width:26px;height:26px">${ic(s.icon,'width="26" height="26"')}</div><div style="font-family:var(--display);font-size:20px;font-weight:700">${s.lieu}</div><div style="font-size:12px">${dateOf(s.quand)}</div></div>
     <div class="row" style="margin-top:12px"><span class="av" style="background:${t.col};color:${t.ink};border:2px solid var(--paper);${PH(t)}">${t.init}</span><span class="av mag" style="background:var(--pink);color:var(--pink-ink);border:2px solid var(--paper);margin-left:-18px">M</span><span style="font-size:13px">${t.nom} et Magalie</span></div>
-    <div style="font-size:12px;margin-top:6px;color:var(--paper-muted)">${allTracks().length} sons partagés · 3 kg de CO₂ évités · ${t.duree} de route</div>
+    <div style="font-size:12px;margin-top:6px;color:var(--paper-muted)">${allTracks().length} sons partagés · ${co2For(S.sortie)} kg de CO₂ évités · ${t.duree} de route</div>
     <span class="pill" style="background:var(--lime);color:var(--lime-ink);margin-top:8px">Quête réussie : ${S.lastQuest}</span>
   </div>
   ${S.reward===null ? `
@@ -559,6 +700,8 @@ profil(){ return `
   <div class="grid3">${Array.from({length:S.cards}).map((_,i)=>{const c=[['var(--violet)','var(--violet-ink)','museum'],['var(--pink)','var(--pink-ink)','mic'],['var(--teal)','var(--teal-ink)','ticket']][i%3];return `<div style="background:var(--paper);border-radius:10px;padding:5px 5px 14px;transform:rotate(${i%2?2:-2}deg)"><div style="background:${c[0]};color:${c[1]};border-radius:6px;aspect-ratio:1;display:flex;align-items:center;justify-content:center">${ic(c[2],'width="26" height="26"')}</div></div>`}).join('')}</div>
   <h3>Mes équipages</h3>
   ${S.crew?`<div class="card"><div class="row"><div class="ico" style="background:var(--ochre);color:var(--ochre-ink)">${ic('users')}</div><div><b>${S.crew}</b><div class="sub">${curT().nom} et toi · 1 sortie</div></div></div></div>`:`<div class="card" style="background:var(--panel2)"><div class="sub">Pas encore d'équipage. Après un trajet qui t'a plu, tu pourras en créer un.</div></div>`}
+  <h3>Mes sorties créées</h3>
+  ${S.mine.length ? S.mine.map(mm=>{const s=getSortie(mm.s),t=s.trajets[0];return `<div class="card"><div class="row"><div class="ico" style="background:var(--pink);color:var(--pink-ink);border:1.5px solid var(--fg)">${ic(MODES[modeList(t)[0]][0])}</div><div style="min-width:0"><b>${esc(s.titre)}</b><div class="sub">${s.quand} · ${modeLabel(modeList(t))}</div></div></div></div>`}).join('') : `<div class="card" style="background:var(--panel2)"><div class="sub">Tu n'as pas encore créé de sortie. Touche le bouton + pour en organiser une.</div></div>`}
   <div class="card" style="background:var(--panel2)"><div class="between"><span>Mode simple</span><span class="pill" style="background:var(--line);color:var(--muted)">Désactivé</span></div><div class="sub" style="margin-top:4px">Gros boutons et rappels SMS, pensé pour les seniors.</div></div>
   <button class="btn btn-ghost tap" data-act="reset">Recommencer la démo</button>`}
 };
@@ -585,7 +728,7 @@ function rresultsHTML(){
 const RV = {
 rhome(){ return `
   <div class="hero" role="img" aria-label="Deux personnes partent en voiture"><span class="brand blogo"><img src="images/logo-noir.png" alt="Go'Cultur"></span></div>
-  <h1>Bonjour René</h1>
+  <div class="row" style="gap:12px"><span class="av" style="width:60px;height:60px;font-size:20px;border:2px solid var(--fg);${PH(RENE)}" role="img" aria-label="Photo de profil de René">R</span><h1>Bonjour René</h1></div>
   <p class="sub" style="margin:0">Que souhaitez-vous faire&nbsp;?</p>
   ${R.booked && R.step<3 ? `<div class="sms"><b>Nouveau message</b><br>${smsTxt()}</div>`:''}
   <button class="bigbtn main tap" data-rgo="rpropose">${rico('car','rgba(255,255,255,.16)','#fff')}Proposer un trajet</button>
@@ -695,19 +838,20 @@ rsouv(){ const k=['museum','ticket','mic','museum']; return `
 };
 
 /* ---------- Rendering ---------- */
-const TABS=[['home','home','Accueil'],['decouverte','cards','Découverte'],['search','search','Sorties'],['quests','target','Quêtes'],['profil','user','Profil']];
+const TABS=[['home','home','Accueil'],['decouverte','cards','Découverte'],['creer','plus','Créer'],['quests','target','Quêtes'],['profil','user','Profil']];
 function render(){
   $('#phone').classList.toggle('simple', P==='rene');
   document.querySelectorAll('[data-persona]').forEach(b=>b.setAttribute('aria-pressed', String(b.dataset.persona===P)));
   $('#note').textContent = P==='rene' ? "Prototype cliquable · données d'exemple · mode simple de René, 65 ans" : "Prototype cliquable · données d'exemple · parcours de Magalie, 19 ans";
   if(P==='rene'){
-    $('#screen').innerHTML=(RV[R.screen]||RV.rhome)(); $('#nav').hidden=true;
+    $('#screen').innerHTML=(RV[R.screen]||RV.rhome)(); $('#nav').hidden=true; $('#sheet').innerHTML='';
   } else {
     const sc=S.screen;
     $('#screen').innerHTML=(V[sc]||V.home)();
+    $('#sheet').innerHTML = S.notif ? sheetHTML() : '';
     $('#nav').hidden = ['welcome','booked','trip','souvenir','tcpass'].includes(sc);
-    const cur = ['sortie','trajet','search','playlist'].includes(sc) ? 'search' : sc;
-    $('#nav').innerHTML = TABS.map(([k,i,l])=>`<button data-tab="${k}" ${cur===k?'aria-current="page"':''}>${ic(i)}${l}</button>`).join('');
+    const cur = ['sortie','trajet','search','playlist'].includes(sc) ? 'home' : sc==='creerok' ? 'creer' : sc;
+    $('#nav').innerHTML = TABS.map(([k,i,l])=>`<button data-tab="${k}" class="${k==='creer'?'plus':''}" ${cur===k?'aria-current="page"':''}>${k==='creer'?`<span class="pbub">${ic(i)}</span>`:ic(i)}${l}</button>`).join('');
   }
   clearInterval(qrTimer);
   if($('#qr')) drawQR();
@@ -746,6 +890,14 @@ function drawQR(){
 document.addEventListener('input',e=>{
   if(e.target.id==='q'){S.q=e.target.value;$('#results').innerHTML=resultsHTML()}
   if(e.target.id==='tq'){S.tq=e.target.value;$('#tresults').innerHTML=tresultsHTML()}
+  if(e.target.id==='cq'){S.cr.q=e.target.value;$('#crres').innerHTML=crResults()}
+  if(e.target.id==='crt'){S.cr.titre=e.target.value}
+  if(e.target.id==='crmsg'){S.cr.message=e.target.value;const c=$('#crmsgc');if(c)c.textContent=e.target.value.length}
+  if(e.target.id==='crh'){S.cr.heure=e.target.value}
+});
+document.addEventListener('keydown',e=>{ if(e.key==='Escape' && S.notif){ S.notif=false; render(); } });
+document.addEventListener('change',e=>{
+  if(e.target.id==='crrdv'){S.cr.rdv=e.target.value}
   if(e.target.id==='rq'){R.q=e.target.value;$('#rresults').innerHTML=rresultsHTML()}
 });
 document.addEventListener('click',e=>{
@@ -763,6 +915,16 @@ document.addEventListener('click',e=>{
   if(d.mode){S.mode=d.mode;render();return}
   if(d.trajet){go('trajet',{trajetId:d.trajet,tracks:[],tq:''});return}
   if(d.dopen!==undefined){openDeck(+d.dopen);return}
+  if(d.crvenue){S.cr.venue=d.crvenue;S.cr.err='';render();return}
+  if(d.crmode){const cr=S.cr,k=d.crmode;
+    if(cr.modes.includes(k)) cr.modes=cr.modes.filter(x=>x!==k); else if(cr.modes.length<3) cr.modes=[...cr.modes,k]; else toast('3 modes maximum par trajet');
+    const car=cr.modes.includes('voiture'); cr.places = car ? Math.min(Math.max(cr.places,1),4) : Math.max(cr.places,2);
+    cr.err='';render();return}
+  if(d.crwho){S.cr.who=d.crwho;render();return}
+  if(d.crfilt){const f=d.crfilt;S.cr.filtres=S.cr.filtres.includes(f)?S.cr.filtres.filter(x=>x!==f):[...S.cr.filtres,f];render();return}
+  if(d.crvalid){S.cr.valid=d.crvalid;render();return}
+  if(d.crtag){const g=d.crtag;S.cr.tags=S.cr.tags.includes(g)?S.cr.tags.filter(x=>x!==g):[...S.cr.tags,g];render();return}
+  if(d.crphoto){S.cr.photo=d.crphoto;render();return}
   if(d.addtrack){if(S.tracks.length<3){S.tracks.push(d.addtrack);const c=CAT(d.addtrack);render();toast('« '+c.t+' » ajouté à la playlist')}return}
   if(d.rmtrack){S.tracks=S.tracks.filter(x=>x!==d.rmtrack);render();return}
   if(d.go){ if(d.step!==undefined) S.tripStep=+d.step; go(d.go); return}
@@ -770,23 +932,46 @@ document.addEventListener('click',e=>{
     case 'playlist': S.playlist=true;render();toast('3 sons ajoutés à la playlist');break;
     case 'book': S.booked=true;S.tripStep=0;S.passUsed=false;go('booked');break;
     case 'bus': S.tcUsed=false;go('tcpass');toast('Billet couplé acheté');break;
-    case 'tccaisse': S.tcUsed=true;S.quests.zero=1;S.sorties++;S.co2+=2;render();toast('Réduction appliquée · quête Zéro voiture');break;
+    case 'tccaisse': S.tcUsed=true;S.quests.zero=1;S.sorties++;S.co2+=co2For(S.sortie,true);render();toast('Réduction appliquée · quête Zéro voiture');break;
     case 'scan1': S.tripStep=1;render();toast('Départ validé avec '+curT().nom);break;
     case 'arrive': S.tripStep=2;S.passUsed=false;render();toast('Pass trajet reçu');break;
     case 'caisse': S.passUsed=true;S.passTime=nowHM();render();toast('−3 € appliqués · trajet validé');break;
     case 'souvenir': {const t=curT();S.tripStep=3;
       if(t.age>=50){S.quests.pont=1;S.lastQuest='Pont des générations'} else {S.lastQuest='Nouveau co-voyageur'}
-      S.collectif=Math.min(100,S.collectif+1);S.sorties++;S.euros+=3;S.co2+=3;S.cards++;S.reward=null;go('souvenir');break;}
+      S.collectif=Math.min(100,S.collectif+1);S.sorties++;S.euros+=3;S.co2+=co2For(S.sortie);S.cards++;S.reward=null;go('souvenir');break;}
     case 'keep': S.reward='keep';render();break;
     case 'give': S.reward='give';render();break;
     case 'crew': S.crew = S.sortie==='louvre' ? 'Les Amis du Louvre' : 'La Bande à '+curT().nom;render();toast('Équipage « '+S.crew+' » créé');break;
     case 'story': toast('Carte prête à partager en story');break;
+    case 'crnext': { const cr=S.cr;
+      if(cr.step===1 && !cr.venue){cr.err='Choisis d\'abord un lieu dans la liste.';render();break}
+      if(cr.step===2 && !cr.modes.length){cr.err='Choisis au moins un mode de transport.';render();break}
+      if(cr.step===4 && !cr.titre.trim()){cr.err='Donne un titre à ta sortie.';render();break}
+      cr.err=''; cr.step++;
+      if(cr.step===4 && !cr.titre){const v=VENUES.find(x=>x.id===cr.venue);cr.titre=(cr.modes.length===1?MODES[cr.modes[0]][2]:'Trajet mixte vers')+' '+v.nom}
+      render();$('#screen').scrollTop=0;break; }
+    case 'crprev': if(S.cr.step>1){S.cr.step--;S.cr.err='';render();$('#screen').scrollTop=0} else go('home');break;
+    case 'crminus': S.cr.places=Math.max(S.cr.modes.includes('voiture')?1:2,S.cr.places-1);render();break;
+    case 'crplus': S.cr.places=Math.min(S.cr.modes.includes('voiture')?4:12,S.cr.places+1);render();break;
+    case 'crplaylist': S.cr.playlist=!S.cr.playlist;render();break;
+    case 'crpublish': { const cr=S.cr, v=VENUES.find(x=>x.id===cr.venue), base=getSortie(v.id);
+      S.myCount++; const id='mine'+S.myCount, tid='magalie'+S.myCount;
+      const org={id:tid, nom:'Magalie', age:19, init:'M', photo:'images/magalie.webp', col:'var(--pink)', ink:'var(--pink-ink)', h:fmtH(cr.heure), places:cr.places, note:'4,9', tag:cr.tags[0]||'Organisatrice', depart:cr.rdv, duree:v.temps, part:cr.modes.includes('voiture')?'1,50 €':cr.modes.includes('bus')?'Billet de transport':'Gratuit', retour:'—', modes:[...cr.modes], msg:cr.message.trim(), mine:true,
+        music:cr.playlist?[{t:'Pookie',a:'Aya Nakamura'},{t:'Bruxelles je t’aime',a:'Angèle'},{t:'Santé',a:'Stromae'}]:[], common:'Angèle'};
+      SORTIES[id]={titre:cr.titre.trim(), quand:v.quand, lieu:base.lieu, icon:v.icon, img:cr.photo==='lieu'?base.img:cr.photo, imgAlt:'Photo de couverture de la sortie', bg:base.bg, ink:base.ink, prix:base.prix, dispo:'Sortie créée par toi', trajets:[org], bus:base.bus, km:v.km};
+      DECK.unshift({s:id,t:tid,mine:true}); S.mine.push({s:id,t:tid}); S.favs=S.favs.map(i=>i+1); S.dIdx=0; S.dHist=[]; S.cr=CRSTART();
+      go('creerok'); break; }
+    case 'crnew': S.cr=CRSTART(); go('creer'); break;
+    case 'crsee': S.cr=CRSTART(); S.dIdx=0; S.dHist=[]; go('decouverte'); break;
+    case 'share': toast('Lien de ta sortie copié (simulation)'); break;
     case 'dpass': deckNext('pass');break;
     case 'dlike': deckNext('like');break;
     case 'dback': if(S.dHist.length){S.dIdx=S.dHist.pop();render()} else toast('Tu es au début des trajets');break;
     case 'dopen': openDeck(S.dIdx);break;
     case 'dreset': S.dIdx=0;S.dHist=[];render();break;
-    case 'notif': toast('1 nouveau trajet près de chez toi');break;
+    case 'notif': S.notif=true; S.notifSeen=true; render(); { const x=$('#sheet-x'); if(x&&x.focus) x.focus(); } break;
+    case 'notifclose': S.notif=false; render(); break;
+    case 'chal': S.notif=false; render(); toast('Défi ajouté à tes quêtes'); break;
     case 'spotify': S.spotify=true;render();toast('Spotify connecté (simulation)');break;
     case 'listen': toast('Ouverture de la playlist dans Spotify (simulation)');break;
     case 'reset': S=START();render();break;
@@ -815,6 +1000,3 @@ function handleR(d){
 }
 render();
 </script>
-
-</body>
-</html>

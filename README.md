@@ -12,6 +12,8 @@ Prototype cliquable d'une application de covoiturage vers les lieux culturels (m
 - **Pass trajet** à présenter à la caisse pour obtenir une réduction.
 - **Playlist du trajet** collaborative (Spotify simulé).
 - **Quêtes du mois**, carte souvenir, équipages et geste solidaire (offrir sa place).
+- **Offres et défis** des partenaires (cloche de l'accueil).
+- **Trajets mixtes** (covoit, transports, bande à vélo ou en skate) avec le CO₂ économisé.
 - **Mode simple** pour les seniors (persona René, 65 ans).
 
 ## Lancer le prototype
