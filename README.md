@@ -16,6 +16,21 @@ Prototype cliquable d'une application de covoiturage vers les lieux culturels (m
 - **Trajets mixtes** (covoit, transports, bande à vélo ou en skate) avec le CO₂ économisé.
 - **Mode simple** pour les seniors (persona René, 65 ans).
 
+## Organisation des fichiers
+
+```
+index.html        la page (structure seulement)
+css/style.css     tout le style
+js/icons.js       icônes SVG et petites fonctions utilitaires
+js/data.js        données de démo : lieux, conducteurs, sorties, CO2, offres et défis
+js/magalie.js     parcours de Magalie (19 ans) : état et écrans
+js/rene.js        parcours de René (65 ans, mode simple)
+js/app.js         affichage, swipe, QR code et gestion des clics
+images/           photos et logos
+```
+
+Les scripts sont chargés dans cet ordre dans `index.html` : chacun utilise ce que les précédents ont défini.
+
 ## Lancer le prototype
 
 Ouvrir `index.html` dans un navigateur. Aucune installation n'est nécessaire.
